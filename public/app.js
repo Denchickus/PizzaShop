@@ -22,6 +22,8 @@ function add_to_cart(id){
 	// alert('Items in your cart: ' + cart_get_number_of_items() );
 }
 
+
+
 function cart_get_number_of_items(){
 	let cnt = 0;
 
@@ -37,6 +39,24 @@ function cart_get_number_of_items(){
 
 	}
 	return cnt;
+}
+
+function cart_get_orders(){
+
+	let orders = '';
+
+	for(let i = 0; i < window.localStorage.length; i++){
+
+		let key = window.localStorage.key(i); //получаем ключ
+		let value = window.localStorage.getItem(key); // получаем значение
+
+		if(key.indexOf('product_') == 0){
+			orders = orders + key + '=' + value + ',';
+		}
+
+
+	}
+	return orders;
 }
 
 
