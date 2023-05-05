@@ -27,7 +27,6 @@ post "/cart" do
 		# id, cnt
 		item[0] = Product.find(item[0])
 	end
-	
 
 	erb :cart
 end
