@@ -1,18 +1,27 @@
 # 'product_1=6,product_2=1,'
 
-orders = 'product_1=6,product_2=1,'
+orders_line = 'product_1=6,product_2=1,'
 
-s1 = orders.split(/,/)
+def parse_orders_line orders_line
 
-puts s1.inspect
+	s1 = orders_linecd.split(/,/)
 
-s1.each do |x|
-	s2 = x.split(/=/)
+	arr = []
 
-	s3 = s2[0].split(/_/)
+	s1.each do |x|
+		s2 = x.split(/=/)
 
-	key = s3[1]
-	value = s2[1]
+		s3 = s2[0].split(/_/)
 
-	puts "Product id: #{key}, number of items: #{value}"
+		id = s3[1]
+		cnt = s2[1]
+
+		arr2 = [id, cnt]
+
+		arr.push arr2
+	end
+
+	return arr
 end
+
+puts parse_orders_line(orders_line).inspect
